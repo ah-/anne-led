@@ -1,0 +1,30 @@
+[package]
+authors = ["Andreas Heider <andreas@heider.io>"]
+categories = ["embedded", "no-std"]
+description = "Firmware for Anne Pro Keyboard"
+keywords = ["no-std", "arm", "cortex-m", "anne", "pro", "keyboard"]
+license = "Apache-2.0"
+name = "anne-led"
+repository = ""
+version = "0.0.1"
+
+[dependencies]
+cortex-m = "0.3.1"
+cortex-m-semihosting = "0.2.0"
+cortex-m-rtfm = "0.2.2"
+clippy = {version = "*", optional = true}
+
+[features]
+default = []
+
+[dependencies.cortex-m-rt]
+features = ["abort-on-panic"]
+version = "0.3.6"
+
+[dependencies.stm32l151]
+features = ["rt"]
+path = "../stm32l151"
+
+[profile.release]
+debug = true
+lto = true
